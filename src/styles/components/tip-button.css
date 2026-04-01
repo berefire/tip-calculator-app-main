@@ -1,0 +1,33 @@
+@layer components {
+  .tip-button {
+    position: relative;
+    flex: 1;
+    text-align: center;
+  }
+
+  .tip-button {
+    width: 100%;;
+  }
+
+  .tip-button--visual {
+    display: inline-block;
+    inline-size: 100%;
+    color: var(--fc-button-disabled);
+    background-color: var(--bg-button-disabled);
+    padding-block: var(--button-padding-block);
+    padding-inline: var(--button-padding-inline);
+    border-radius: var(--tip-button-border-radius);
+    font-size: var(--fs-button);
+    line-height: var(--lh-button);
+  }
+
+  .tip-button__input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    block-size: 100%;
+    inline-size: 100%;
+    cursor: pointer;
+  }
+}

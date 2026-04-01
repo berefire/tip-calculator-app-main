@@ -1,0 +1,15 @@
+@layer components {
+    .icon {
+        display: block;
+        inline-size: calc( 86.66/ var(--base)* 1rem);
+        block-size: calc( 53.14/ var(--base)* 1rem);
+        background-image: url("../../assets/images/logo.svg");
+        background-repeat: no-repeat;
+    }
+
+    .calculator {
+        background-color: var(--bg-calculator);
+        inline-size: 100%;
+        border-radius: var(--calculator-border-radius) var(--calculator-border-radius) 0 0;
+    }
+}

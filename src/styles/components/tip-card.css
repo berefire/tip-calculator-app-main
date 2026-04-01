@@ -1,0 +1,40 @@
+@layer components {
+  .calculator__results {
+    background-color: var(--bg-tip-card);
+    border-radius: var(--tip-card-border-radius);
+  }
+
+  .amount__label,
+  .total__label {
+    color: var(--fc-display-label);
+    font-size: var(--fs-display-label);
+    line-height: var(--lh-display-label);
+  }
+
+  .person__label {
+    display: block;
+    color: var(--fc-person-label);
+    font-size: var(--fs-person);
+    line-height: var(--lh-person);
+  }
+
+  .display-amount,
+  .display-total {
+    color: var(--fc-display-output);
+    font-size: var(--fs-number-display);
+    line-height: var(--lh-number-display);
+    letter-spacing: var(--ls-number-display);
+  }
+
+  .reset-btn {
+    inline-size: 100%;
+    padding-block: var(--reset-button-padding-block);
+    padding-inline: var(--reset-button-padding-inline);
+    background-color: var(--bg-reset-button-disabled);
+    border-radius: var(--tip-button-border-radius);
+    text-transform: uppercase;
+    color: var(--fc-reset-button-disabled);
+    font-size: var(--fs-reset-button);
+    line-height: var(--lh-reset-button);
+  }
+}

@@ -1,0 +1,22 @@
+@layer tokens {
+    :root {
+        --calculator-padding-block: var(--spacing-400);
+        --calculator-padding-inline: var(--spacing-300);
+        --form-margin-inline: var(--spacing-100);
+        --gap-calculator: var(--spacing-400);
+        --gap-buttons: var(--spacing-200);
+        --gap-results: var(--spacing-400);
+        --item-display-gap-row: var(--spacing-300);
+        --item-display-gap-column: var(--spacing-1000);
+        --stack-form: var(--spacing-400); 
+        --stack-options-form: var(--spacing-100);
+        --stack-bill: var(--spacing-100); 
+        --bill-input-padding-inline: var(--spacing-200);
+        --bill-input-padding-block: var(--spacing-100);
+        --button-padding-block: var(--spacing-100);
+        --button-padding-inline: var(--spacing-200);
+        --reset-button-padding-block: var(--spacing-100);
+        --reset-button-padding-inline: var(--spacing-400);
+        --tip-card-padding: var(--spacing-300);
+    }
+}

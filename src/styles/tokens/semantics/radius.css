@@ -1,0 +1,9 @@
+@layer tokens {
+    :root {
+
+        --bill-input-border-radius: calc( 5 / var(--base) * 1rem);
+        --tip-button-border-radius: calc( 5 / var(--base) * 1rem);
+        --calculator-border-radius: calc( 25 / var(--base) * 1rem);
+        --tip-card-border-radius: calc( 15 / var(--base) * 1rem);
+    }
+}

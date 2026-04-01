@@ -20,52 +20,87 @@
 </head>
 
 <body>
-  <main>
+  <main class="cover">
     <h1 class="sr-only">Tip Calculator App</h1>
-    <span class="icon" aria-hidden="true"></span>
-    <section class="calculator" aria-labelledby="calculator-title">
+    <span class="icon box--icon" aria-hidden="true"></span>
+    <section class="calculator box--calculator cluster--calculator" aria-labelledby="calculator-title">
       <h2 id="calculator-title" class="sr-only">
         Tip Calculator App
       </h2>
 
-      <form class="calculator__form" novalidate>
+      <form class="calculator__form stack--form" novalidate>
         <div class="form-group">
-          <label for="bill">Bill</label>
-          <input 
-            type="number" 
-            id="bill" 
-            name="bill" 
-            inputmode="decimal"
-            min="0"
-            placeholder="0" 
-            required
-            aria-describedby="bill-error"
-            />
-            <span id="bill-error" class="error-message" aria-live="polite"></span>
+          <label for="bill" class="bill__label">Bill</label>
+          <div class="bill__wrapper">
+            <img src="/src/assets/images/icon-dollar.svg" alt="" class="bill__icon" aria-hidden="true">
+            <input class="bill__input" type="number" id="bill" name="bill" inputmode="decimal" min="0" placeholder="0"
+              required />
+          </div>
         </div>
 
-        <fieldset ></fieldset>
+        <fieldset>
+          <legend class="tip__label">Select Tip %</legend>
+          <div class="group-buttons grid">
+            <label class="tip-button">
+              <input type="radio" name="tip" value="5" class="tip-button__input" />
+              <span class="tip-button--visual">5%</span>
+            </label>
 
-      Select Tip %
-      5%
-      10%
-      15%
-      25%
-      50%
-      Custom
+            <label class="tip-button">
+              <input type="radio" name="tip" value="10" class="tip-button__input" />
+              <span class="tip-button--visual">10%</span>
+            </label>
 
-      Number of People
+            <label class="tip-button">
+              <input type="radio" name="tip" value="15" class="tip-button__input" />
+              <span class="tip-button--visual">15%</span>
+            </label>
 
+            <label class="tip-button">
+              <input type="radio" name="tip" value="25" class="tip-button__input" />
+              <span class="tip-button--visual">25%</span>
+            </label>
+
+            <label class="tip-button">
+              <input type="radio" name="tip" value="50" class="tip-button__input" />
+              <span class="tip-button--visual">50%</span>
+            </label>
+
+            <label for="tip-custom" class="tip-custom__label sr-only">Custom Tip</label>
+            <input type="number" class="tip-custom__input" name="tip-custom" id="tip-custom" inputmode="numeric"
+              placeholder="Custom" min="0" aria-label="Custom tip percentage" />
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="people" class="people__label">Number of People</label>
+          <div class="people__wrapper">
+            <img src="/src/assets/images/icon-person.svg" alt="" class="people__icon" aria-hidden="true">
+            <input class="people__input" type="number" id="people" name="people" inputmode="numeric" min="0"
+              placeholder="0" required aria-describedby="people-error" />
+            <span id="people-error" class="error-message" aria-live="polite"></span>
+          </div>
+
+        </div>
       </form>
-      
 
-      Tip Amount
-      / person
+      <section class="calculator__results box--tip-card cluster cluster--results" aria-live="polite">
+        <div class="results-display grid--display-results">
+            <p class="amount__label">
+              Tip Amount <span class="person__label">/ person</span>
+            </p>
+            <output class="display-amount" id="tip-amount">$0.00</output>
 
-      Total
-      / person
+            <p class="total__label">
+              Total <span class="person__label">/ person</span>
+            </p>
+            <output class="display-total" id="total">$0.00</output>
+        </div>
 
-      Reset
+        <button type="reset" class="reset-btn">
+          Reset
+        </button>
+      </section>
     </section>
   </main>
   <footer class="attribution">

@@ -1,0 +1,57 @@
+@layer components {
+    .calculator__form {
+        margin-inline: var(--form-margin-inline);
+    }
+
+    .bill__label, .people__label, .tip__label {
+        display: block;
+        color: var(--fc-bill-label);
+        font-size: var(--fs-bill-label);
+        line-height: var(--lh-bill-label);
+        margin-block-end: var(--stack-options-form);
+    }
+
+    .bill__wrapper, .people__wrapper {
+        position: relative;
+
+        background-color: var(--bg-bill-input);
+        border-radius: var(--bill-input-border-radius);
+    }
+
+    .bill__icon, .people__icon {
+        position: absolute;
+        padding-inline-start: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .bill__input, .people__input {
+        inline-size: 100%;
+        block-size: max-content;
+        padding-inline: var(--bill-input-padding-inline);
+        padding-block: var(--bill-input-padding-block);
+        text-align: end;
+        font-size: var(--fs-bill-input);
+        line-height: var(--lh-bill-input);
+        color: var(--fc-bill-input);        
+    }
+
+    .bill__input::placeholder, .people__input::placeholder {
+        color: var(--fc-bill-input-placeholder);
+    }
+
+    .tip-custom__input {
+        inline-size: 100%;
+        text-align: center;
+        background-color: var(--bg-bill-input);
+        font-size: var(--fs-button);
+        line-height: var(--lh-button);
+        border-radius: var(--tip-button-border-radius);
+    }
+
+    .tip-custom__input::placeholder {
+        color: var(--fc-tip-input);
+    }
+
+}

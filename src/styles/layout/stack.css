@@ -1,0 +1,9 @@
+@layer layout {
+    .stack--form > * + * {
+        margin-block-start: var(--stack-form);
+    }
+
+    .stack--bill > * + * {
+        margin-block-start: var(--stack-bill);
+    }
+}

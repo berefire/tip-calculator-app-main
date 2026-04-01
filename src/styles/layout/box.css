@@ -1,0 +1,16 @@
+@layer layout {
+
+    .box--icon {
+        margin-block-start: calc( 50 / var(--base) * 1rem);
+        margin-block-end: calc( 40.86 / var(--base) * 1rem);
+    }
+
+    .box--calculator {
+        padding-block: var(--calculator-padding-block);
+        padding-inline: var(--calculator-padding-inline);
+    }
+
+    .box--tip-card {
+        padding: var(--tip-card-padding);
+    }
+}

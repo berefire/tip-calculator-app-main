@@ -1,0 +1,19 @@
+@layer layout {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: var(--gap-buttons);
+        row-gap: var(--gap-buttons);
+    }
+
+    .grid--display-results {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        column-gap: var(--item-display-gap-column);
+        row-gap: var(--item-display-gap-row);
+        grid-template-rows: repeat(2, 1fr);
+        align-items: center;
+    }
+    
+}

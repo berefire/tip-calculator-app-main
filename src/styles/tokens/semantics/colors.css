@@ -1,5 +1,20 @@
 @layer tokens {
     :root {
         --bg-primary: var(--grey-200);
+        --bg-calculator: var(--white);
+        --bg-bill-input: var(--grey-50);
+        --bg-button-disabled: var(--green-900);
+        --bg-tip-card: var(--green-900);
+        --bg-reset-button-disabled: var(--green-750);
+
+        --fc-bill-input: var(--green-900);
+        --fc-bill-input-placeholder: var(--grey-300);
+        --fc-bill-label: var(--grey-500);
+        --fc-button-disabled: var(--white);
+        --fc-tip-input: var(--grey-550);
+        --fc-display-label: var(--white);
+        --fc-person-label: var(--grey-400);
+        --fc-display-output: var(--green-400);
+        --fc-reset-button-disabled: var(--green-800);
     }
 }

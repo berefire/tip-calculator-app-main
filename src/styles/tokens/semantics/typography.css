@@ -2,6 +2,28 @@
     :root {
         --font-family-base: "Space Mono", monospace;
 
+        --fs-bill-input: var(--font-size-3);
+        --lh-bill-input: var(--line-height-3);
+
+        --fs-bill-label: var(--font-size-5);
+        --lh-bill-label: var(--line-height-5);
+
+        --fs-button: var(--font-size-3);
+        --lh-button: var(--line-height-3);
+
+        --fs-reset-button: var(--font-size-3);
+        --lh-reset-button: var(--line-height-3);
+
+        --fs-person: var(--font-size-6);
+        --lh-person: var(--line-height-6);
+
+        --fs-display-label: var(--font-size-5);
+        --lh-display-label: var(--line-height-5);
+
+        --fs-number-display: var(--font-size-2);
+        --lh-number-display: var(--line-height-2);
+        --ls-number-display: var(--letter-spacing-2);
+
         --fw-bold: var(--font-weight-700);
     }
 }
