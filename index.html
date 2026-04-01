@@ -10,7 +10,7 @@
   <meta name="description"
     content="Frontend Mentor challenge solution for the Tip Calculator App. Built with semantic HTML, modular CSS architecture, and vanilla JavaScript.">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
   <title>Frontend Mentor | Tip calculator app</title>
 
@@ -21,25 +21,52 @@
 
 <body>
   <main>
-    Bill
+    <h1 class="sr-only">Tip Calculator App</h1>
+    <span class="icon" aria-hidden="true"></span>
+    <section class="calculator" aria-labelledby="calculator-title">
+      <h2 id="calculator-title" class="sr-only">
+        Tip Calculator App
+      </h2>
 
-    Select Tip %
-    5%
-    10%
-    15%
-    25%
-    50%
-    Custom
+      <form class="calculator__form" novalidate>
+        <div class="form-group">
+          <label for="bill">Bill</label>
+          <input 
+            type="number" 
+            id="bill" 
+            name="bill" 
+            inputmode="decimal"
+            min="0"
+            placeholder="0" 
+            required
+            aria-describedby="bill-error"
+            />
+            <span id="bill-error" class="error-message" aria-live="polite"></span>
+        </div>
 
-    Number of People
+        <fieldset ></fieldset>
 
-    Tip Amount
-    / person
+      Select Tip %
+      5%
+      10%
+      15%
+      25%
+      50%
+      Custom
 
-    Total
-    / person
+      Number of People
 
-    Reset
+      </form>
+      
+
+      Tip Amount
+      / person
+
+      Total
+      / person
+
+      Reset
+    </section>
   </main>
   <footer class="attribution">
     Challenge by <a class="link" href="https://www.frontendmentor.io?ref=challenge" target="_blank"
