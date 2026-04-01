@@ -1,0 +1,7 @@
+@layer tokens {
+    :root {
+        --font-family-base: "Space Mono", monospace;
+
+        --fw-bold: var(--font-weight-700);
+    }
+}

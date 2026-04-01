@@ -1,0 +1,18 @@
+@layer utilities {
+  .link {
+    color: hsl(228, 45%, 44%);
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.15em;
+  }
+
+  .link:hover,
+  .link:focus-visible {
+    text-decoration-thickness: 0.08em;
+  }
+
+  .link:focus-visible {
+    outline: 0.125em solid hsl(228, 45%, 44%);
+    outline-offset: 0.125em;
+  }
+}

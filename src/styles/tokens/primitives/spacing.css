@@ -1,0 +1,19 @@
+@layer tokens {
+  :root {
+    /* Base */
+    --base: 16;
+
+    /* Spacing */
+    --spacing-0: 0;
+    --spacing-100: calc(8 / var(--base) * 1rem); /* 8px */
+    --spacing-200: calc(16 / var(--base) * 1rem); /* 16px */
+    --spacing-300: calc(24 / var(--base) * 1rem); /* 24px */
+    --spacing-400: calc(32 / var(--base) * 1rem); /* 32px */
+    --spacing-600: calc(48 / var(--base) * 1rem); /* 48px */
+    --spacing-1000: calc(80 / var(--base) * 1rem); /* 80px */
+    --spacing-1200: calc(96 / var(--base) * 1rem); /* 96px */
+    --spacing-1500: calc(120 / var(--base) * 1rem); /* 120px */
+    --spacing-1600: calc(128 / var(--base) * 1rem); /* 128px */
+    
+  }
+}
