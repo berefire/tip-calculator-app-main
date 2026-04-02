@@ -12,4 +12,13 @@
         inline-size: 100%;
         border-radius: var(--calculator-border-radius) var(--calculator-border-radius) 0 0;
     }
+
+
+    @media (min-width: 48em){
+        .calculator {
+            max-inline-size: var(--form-inline-size);
+            border-radius: var(--calculator-border-radius);
+            margin-block-end: var(--calculator-margin-block-end);
+        }
+    }
 }

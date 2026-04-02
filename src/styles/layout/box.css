@@ -13,4 +13,11 @@
     .box--tip-card {
         padding: var(--tip-card-padding);
     }
+
+    @media(min-width: 64em){
+        .box--icon {
+            margin-block-start: calc( 163 / var(--base) * 1rem);
+            margin-block-end: calc( 87.86 / var(--base) * 1rem);
+        }
+    }
 }

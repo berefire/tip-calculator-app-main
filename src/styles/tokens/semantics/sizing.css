@@ -1,6 +1,11 @@
 @layer tokens {
     :root {
+        --form-inline-size: var(--size-608);
+    }
 
-        --form-block-size: var(--size-311);
+    @media(min-width: 64em){
+        :root {
+            --form-inline-size: var(--size-920);
+        }
     }
 }

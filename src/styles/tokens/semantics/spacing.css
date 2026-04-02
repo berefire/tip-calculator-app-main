@@ -2,6 +2,8 @@
     :root {
         --calculator-padding-block: var(--spacing-400);
         --calculator-padding-inline: var(--spacing-300);
+        --calculator-margin-block-end: var(--spacing-1000);
+
         --form-margin-inline: var(--spacing-100);
         --gap-calculator: var(--spacing-400);
         --gap-buttons: var(--spacing-200);
@@ -18,5 +20,31 @@
         --reset-button-padding-block: var(--spacing-100);
         --reset-button-padding-inline: var(--spacing-400);
         --tip-card-padding: var(--spacing-300);
+    }
+
+    @media(min-width: 48em){
+        :root {
+            --calculator-padding-block: var(--spacing-600);
+            --calculator-padding-inline: var(--spacing-1000);
+            --gap-calculator: calc( 40 / var(--base) * 1rem);
+            --stack-form: var(--spacing-300);
+            --form-margin-inline: var(--spacing-0);
+            --item-display-gap-row: var(--spacing-100);
+            --item-display-gap-column: var(--spacing-1500);
+        }
+    }
+
+    @media(min-width: 64em){
+        :root {
+            --calculator-padding-block: var(--spacing-400);
+            --calculator-padding-inline: var(--spacing-400);
+            --gap-calculator: var(--spacing-600);
+            --stack-form: calc( 40 / var(--base) * 1rem);
+            --gap-results: var(--spacing-1600);
+            --item-display-gap-row: var(--spacing-300);
+            --item-display-gap-column: var(--spacing-1200);
+            --calculator-margin-block-end: calc( 239 / var(--base) * 1rem );
+
+        }
     }
 }

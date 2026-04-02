@@ -26,4 +26,15 @@
 
         --fw-bold: var(--font-weight-700);
     }
+
+    @media(min-width: 48em){
+        :root {
+            --fs-number-display: var(--font-size-1);
+            --lh-number-display: var(--line-height-1);
+            --ls-number-display: var(--letter-spacing-1);
+
+            --fs-reset-button: var(--font-size-4);
+            --lh-reset-button: var(--line-height-4);
+        }
+    }
 }

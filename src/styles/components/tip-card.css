@@ -24,6 +24,7 @@
     font-size: var(--fs-number-display);
     line-height: var(--lh-number-display);
     letter-spacing: var(--ls-number-display);
+    text-align: end;
   }
 
   .reset-btn {

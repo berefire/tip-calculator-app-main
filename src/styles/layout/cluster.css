@@ -10,4 +10,14 @@
         flex-direction: column;
         gap: var(--gap-results);
     }
+
+    @media(min-width: 64em){
+        .cluster--calculator {
+            flex-direction: row;
+        }
+
+        .cluster--results {
+            justify-content: space-between;
+        }
+    }
 }
