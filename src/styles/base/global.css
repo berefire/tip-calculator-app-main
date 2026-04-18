@@ -28,6 +28,13 @@
     margin: 0;
   }
 
+  input {
+    cursor: pointer;
+    border: 2px solid transparent;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
   @supports (min-block-size: 100dvh) {
     html,
     body {

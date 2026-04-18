@@ -1,0 +1,12 @@
+@layer states {
+    .reset-btn:disabled {
+        background-color: var(--bg-reset-button-disabled);
+        color: var(--fc-reset-button-disabled);
+        cursor: not-allowed;
+    }
+
+    .reset-btn:hover:not(:disabled) {
+        background-color: var(--bg-button-hover);
+        color: var(--fc-button-hover);
+    }
+}

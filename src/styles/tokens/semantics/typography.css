@@ -8,6 +8,9 @@
         --fs-bill-label: var(--font-size-5);
         --lh-bill-label: var(--line-height-5);
 
+        --fs-error-message: var(--font-size-5);
+        --lh-error-message: var(--line-height-5);
+
         --fs-button: var(--font-size-3);
         --lh-button: var(--line-height-3);
 

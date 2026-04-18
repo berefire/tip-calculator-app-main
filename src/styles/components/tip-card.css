@@ -31,10 +31,10 @@
     inline-size: 100%;
     padding-block: var(--reset-button-padding-block);
     padding-inline: var(--reset-button-padding-inline);
-    background-color: var(--bg-reset-button-disabled);
+    background-color: var(--bg-reset-button-enabled);
     border-radius: var(--tip-button-border-radius);
     text-transform: uppercase;
-    color: var(--fc-reset-button-disabled);
+    color: var(--fc-reset-button-enabled);
     font-size: var(--fs-reset-button);
     line-height: var(--lh-reset-button);
   }

@@ -1,0 +1,16 @@
+@layer states {
+    .tip-button__input:checked + .tip-button--visual {
+        background-color: var(--bg-button-enabled);
+        color: var(--fc-button-enabled);
+    }
+
+    .tip-button__input:hover + .tip-button--visual {
+        background-color: var(--bg-button-hover);
+        color: var(--fc-button-hover);
+    }
+
+    .tip-custom__input:focus {
+        border: 2px solid var(--bg-input-focus);
+        border-radius: var(--tip-button-border-radius);
+    }
+}

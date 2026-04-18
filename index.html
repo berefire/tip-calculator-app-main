@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="author" content="Berefire">
@@ -73,12 +74,15 @@
         </fieldset>
 
         <div class="form-group">
-          <label for="people" class="people__label">Number of People</label>
+          <div class="people-error__wrapper">
+            <label for="people" class="people__label">Number of People</label>
+            <span id="people-error" class="error-message" aria-live="polite"></span>
+          </div>
+          
           <div class="people__wrapper">
             <img src="/src/assets/images/icon-person.svg" alt="" class="people__icon" aria-hidden="true">
             <input class="people__input" type="number" id="people" name="people" inputmode="numeric" min="0"
               placeholder="0" required aria-describedby="people-error" />
-            <span id="people-error" class="error-message" aria-live="polite"></span>
           </div>
 
         </div>

@@ -3,12 +3,31 @@
         margin-inline: var(--form-margin-inline);
     }
 
-    .bill__label, .people__label, .tip__label {
+    .bill__label, .tip__label {
         display: block;
         color: var(--fc-bill-label);
         font-size: var(--fs-bill-label);
         line-height: var(--lh-bill-label);
         margin-block-end: var(--stack-options-form);
+    }
+
+    .people__label {
+        color: var(--fc-bill-label);
+        font-size: var(--fs-bill-label);
+        line-height: var(--lh-bill-label);
+    }
+
+    .people-error__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block-end: var(--stack-options-form);
+    }
+
+    .error-message {
+        color: var(--fc-error-message);
+        font-size: var(--fs-error-message);
+        line-height: var(--lh-error-message);
     }
 
     .bill__wrapper, .people__wrapper {
