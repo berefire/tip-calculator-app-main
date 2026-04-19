@@ -1,106 +1,204 @@
-# Frontend Mentor - Tip calculator app
+# Frontend Mentor - Tip calculator app solution
 
-![Design preview for the Tip calculator app coding challenge](./preview.jpg)
+![GitHub last commit](https://img.shields.io/github/last-commit/berefire/tip-calculator-app-main)
+![Repo size](https://img.shields.io/github/repo-size/berefire/tip-calculator-app-main)
 
-## Welcome! 👋
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+[![Frontend Mentor](https://img.shields.io/badge/Frontend%20Mentor-3e54a3?style=for-the-badge&logo=frontendmentor&logoColor=white)](https://www.frontendmentor.io/)
+[![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+![Semantic HTML](https://img.shields.io/badge/Semantic%20HTML-ff9800?style=for-the-badge)
+![Accessibility](https://img.shields.io/badge/Accessibility-A11Y-0052cc?style=for-the-badge)
+![Responsive Layout](https://img.shields.io/badge/Responsive%20Layout-Full%20Support-blue?style=for-the-badge)
+![Mobile First](https://img.shields.io/badge/Mobile--First-Design-orange?style=for-the-badge)
 
-Thanks for checking out this front-end coding challenge.
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Table of contents
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#️my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## The challenge
+---
 
-Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
+## 📖Overview
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+### The challenge
 
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
-### Want some support on the challenge? 
+---
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### 📸Screenshot
 
-## Where to find everything
+![](./screenshot.jpg)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+---
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### 🔗Links
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+---
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+## ⚙️My process
 
-## Using AI coding assistants
+### 🛠Built with
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- Vanilla JavaScript (ES Modules)
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+---
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+### 💡What I learned
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+This project helped me improve several important frontend concepts:
 
-## Building your project
+#### 1. State Management (Vainilla JS)
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+I implemented a centralized state system to manage application data:
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```js
+export const state = {
+    bill: 0,
+    tip: 0,
+    customTip: 0,
+    people: 0,
+    error: {
+        people: "",
+    },
+};
+```
 
-## Deploying your project
+This approach made the app predcitable and easier to maintain.
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+#### 2. Handling Multiple Inputs (Tip vs Custom Tip)
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+One key challenge was prioritizing user  input:
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+```js
+function getTipValue() {
+  return state.customTip || state.tip;
+}
 
-## Create a custom `README.md`
+const tipValue = getTipValue();
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+This ensures the custom input overrides predefined inputs.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+#### 3. Accessible Custom Inputs
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+I used radio inputs with custom styling instead of buttons:
 
-## Submitting your solution
+```css
+.tip-button__input:checked + .tip-button--visual {
+        background-color: var(--bg-button-enabled);
+        color: var(--fc-button-enabled);
+    }
+```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+This keeps accessibility while allowing full UI control.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+#### 4. Robust Validation
 
-## Sharing your solution
+Example validation for "Number of People":
 
-There are multiple places you can share your solution:
+```js
+export function validatePeople(value) { 
+  if (!value || value <= 0) { 
+    return "Can't be zero"; 
+    } 
+    return ""; 
+}
+```
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+#### 5. Clean Event Architecture
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+I structured event handling to follow a predictable flow:
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+```js
+function handleInputChange(e) {
+  const { name, value } = e.target;
+  const numericValue = getNumericValue(value);
 
-## Got feedback for us?
+  if (!validateField(name, numericValue, e.target)) return;
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+  setState({ [name]: numericValue });
+  render();
+}
+```
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+---
 
-**Have fun building!** 🚀
+### 🚀Continued development
+
+In future projects, I want to improve:
+
+- Advanced state management (Observer pattern/reactive state)
+- Unit testing for business logic
+- Accessibility (ARIA, keyboard navigation)
+- Performance optimizations for larger apps
+
+---
+
+### 📚Useful resources
+
+- [MDN Web Docs](https://developer.mozilla.org/es/) - excellent reference for HTML, CSS, and JavaScript
+- [WebAIM](https://webaim.org/) - accessibility guidelines and contrast checking
+- [Frontend Mentor](https://www.frontendmentor.io) - real-world frontend challenges and design files
+
+---
+
+### 🤖AI Collaboration
+
+During this project, I used ChatGPT as a development assistant.
+
+**How I used it:**
+
+- Debugging issues (event handling, state bugs)
+- Improving code structure and architecture
+- Learning best practices (CSS architecture, JS patterns)
+
+**What worked well:**
+
+- Refactoring code into modular architecture.
+- Understanding deeper concepts (state flow, accessibility)
+
+**What I learned**
+AI is most effective when used as a tool for reasoning and improvement, not just code generation.
+
+---
+
+## 👤Author
+
+- Frontend Mentor - [@berefire](https://www.frontendmentor.io/profile/berefire)
+- GitHub - [@berefire](https://github.com/berefire)
+
+---
+
+## 🙏Acknowledgments
+
+Thanks to Frontend Mentor for providing practical challenges that help developers improve real-world frontend skills.
+
+---
+
