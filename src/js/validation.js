@@ -3,5 +3,9 @@ export function validatePeople(value) {
         return "Can't be zero";
     }
 
+    if ( value > 100 ) {
+        return "Too many people";   
+    }
+
     return "";
 }

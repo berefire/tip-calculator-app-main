@@ -34,7 +34,7 @@
           <label for="bill" class="bill__label">Bill</label>
           <div class="bill__wrapper">
             <img src="/src/assets/images/icon-dollar.svg" alt="" class="bill__icon" aria-hidden="true">
-            <input class="bill__input" type="number" id="bill" name="bill" inputmode="decimal" min="0" placeholder="0"
+            <input class="bill__input" type="number" id="bill" name="bill" inputmode="decimal" min="0" placeholder="0" min="0" max="1000000" step="0.01"
               required />
           </div>
         </div>
@@ -69,7 +69,7 @@
 
             <label for="tip-custom" class="tip-custom__label sr-only">Custom Tip</label>
             <input type="number" class="tip-custom__input" name="tip-custom" id="tip-custom" inputmode="numeric"
-              placeholder="Custom" min="0" aria-label="Custom tip percentage" />
+              placeholder="Custom" min="0" max="100" aria-label="Custom tip percentage" />
           </div>
         </fieldset>
 
@@ -81,7 +81,7 @@
           
           <div class="people__wrapper">
             <img src="/src/assets/images/icon-person.svg" alt="" class="people__icon" aria-hidden="true">
-            <input class="people__input" type="number" id="people" name="people" inputmode="numeric" min="0"
+            <input class="people__input" type="number" id="people" name="people" inputmode="numeric" min="0" max="100"
               placeholder="0" required aria-describedby="people-error" />
           </div>
 

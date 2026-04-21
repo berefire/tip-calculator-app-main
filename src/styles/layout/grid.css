@@ -9,11 +9,11 @@
 
     .grid--display-results {
         display: grid;
-        grid-template-columns: max-content 1fr;
-        column-gap: var(--item-display-gap-column);
-        row-gap: var(--item-display-gap-row);
+        grid-template-columns: max-content minmax(0, 1fr);
+        gap: var(--item-display-gap-row) var(--item-display-gap-column);
         grid-template-rows: repeat(2, 1fr);
         align-items: center;
+        justify-items: stretch;
     }
 
     @media(min-width: 48em) {

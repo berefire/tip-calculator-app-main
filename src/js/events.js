@@ -3,6 +3,7 @@ import { calculateTip } from './calculator.js';
 import { updateResults } from './ui.js';
 import { validatePeople } from './validation.js';
 import { showError, clearError } from './ui.js';
+import { sanitizeNumber } from './utils/number.js';
 
 /* =========================
    DOM CACHE (evita queries repetidos)
@@ -32,10 +33,6 @@ function hasUserInput() {
 
 function updateResetButton() {
   DOM.resetBtn.disabled = !hasUserInput();
-}
-
-function getNumericValue(value) {
-  return Number(value) || 0;
 }
 
 function getTipValue() {
@@ -103,7 +100,7 @@ function render() {
 
 function handleInputChange(e) {
   const { name, value } = e.target;
-  const numericValue = getNumericValue(value);
+  const numericValue = sanitizeNumber(value);
 
   if (!validateField(name, numericValue, e.target)) return;
 
@@ -117,7 +114,7 @@ function handleTipChange(e) {
   DOM.customTip.value = '';
 
   setState({
-    tip: getNumericValue(e.target.value),
+    tip: sanitizeNumber(e.target.value),
     customTip: 0,
   });
 
@@ -125,7 +122,7 @@ function handleTipChange(e) {
 }
 
 function handleCustomTip(e) {
-  const value = getNumericValue(e.target.value);
+  const value = sanitizeNumber(e.target.value, 100);
 
   resetTipSelection();
 

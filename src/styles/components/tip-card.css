@@ -24,7 +24,11 @@
     font-size: var(--fs-number-display);
     line-height: var(--lh-number-display);
     letter-spacing: var(--ls-number-display);
-    text-align: end;
+    justify-self: end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
   }
 
   .reset-btn {
