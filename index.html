@@ -31,10 +31,14 @@
 
       <form class="calculator__form stack--form" novalidate>
         <div class="form-group">
-          <label for="bill" class="bill__label">Bill</label>
+          <div class="bill-error__wrapper">
+            <label for="bill" class="bill__label">Bill</label>
+            <span id="bill-error" class="error-message" aria-live="polite"></span>
+          </div>
+          
           <div class="bill__wrapper">
             <img src="/src/assets/images/icon-dollar.svg" alt="" class="bill__icon" aria-hidden="true">
-            <input class="bill__input" type="number" id="bill" name="bill" inputmode="decimal" min="0" placeholder="0" min="0" max="1000000" step="0.01"
+            <input class="bill__input" type="number" id="bill" name="bill" inputmode="decimal" min="0" placeholder="0" min="0" max="100000"
               required />
           </div>
         </div>

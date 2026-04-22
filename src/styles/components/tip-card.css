@@ -2,6 +2,7 @@
   .calculator__results {
     background-color: var(--bg-tip-card);
     border-radius: var(--tip-card-border-radius);
+    flex: 1;
   }
 
   .amount__label,

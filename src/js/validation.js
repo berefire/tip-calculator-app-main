@@ -9,3 +9,11 @@ export function validatePeople(value) {
 
     return "";
 }
+
+export function validateBill(value) {
+    if ( value > 10001 ) {
+        return "Amount too high";   
+    }
+
+    return "";
+}

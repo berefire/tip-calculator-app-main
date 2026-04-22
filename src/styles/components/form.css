@@ -1,6 +1,7 @@
 @layer components {
     .calculator__form {
         margin-inline: var(--form-margin-inline);
+        flex: 1;
     }
 
     .bill__label, .tip__label {
@@ -17,7 +18,7 @@
         line-height: var(--lh-bill-label);
     }
 
-    .people-error__wrapper {
+    .people-error__wrapper, .bill-error__wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -32,7 +33,6 @@
 
     .bill__wrapper, .people__wrapper {
         position: relative;
-
         background-color: var(--bg-bill-input);
         border-radius: var(--bill-input-border-radius);
     }
@@ -40,6 +40,7 @@
     .bill__icon, .people__icon {
         position: absolute;
         padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
         top: 50%;
         transform: translateY(-50%);
         pointer-events: none;

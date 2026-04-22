@@ -1,15 +1,10 @@
 @layer states {
-    .bill__input:focus {
+    .bill__input:not(.bill__input--error):focus, .people__input:not(.people__input--error):focus {
         border: 2px solid var(--bg-input-focus);
         border-radius: var(--bill-input-border-radius);
     }
 
-    .people__input:not(.people__input--error):focus {
-        border: 2px solid var(--bg-input-focus);
-        border-radius: var(--bill-input-border-radius);
-    }
-
-    .people__input--error {
+    .people__input--error, .bill__input--error {
         border: 2px solid var(--bg-input-error);
         border-radius: var(--bill-input-border-radius);
     }

@@ -14,6 +14,7 @@
     @media(min-width: 64em){
         .cluster--calculator {
             flex-direction: row;
+            justify-content: space-between;
         }
 
         .cluster--results {

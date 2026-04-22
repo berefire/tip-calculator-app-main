@@ -1,9 +1,9 @@
 import { state, setState } from './state.js';
 import { calculateTip } from './calculator.js';
 import { updateResults } from './ui.js';
-import { validatePeople } from './validation.js';
+import { validatePeople, validateBill } from './validation.js';
 import { showError, clearError } from './ui.js';
-import { sanitizeNumber } from './utils/number.js';
+import { sanitizeNumber, enforceMaxValue, limitLength } from './utils/number.js';
 
 /* =========================
    DOM CACHE (evita queries repetidos)
@@ -62,9 +62,15 @@ function resetState() {
    VALIDATION LAYER
 ========================= */
 function validateField(name, value, element) {
-  if (name !== 'people') return true;
+  let error= '';
 
-  const error = validatePeople(value);
+  if (name === 'people') {
+    error = validatePeople(value);
+  }
+
+  if (name === 'bill') {
+    error = validateBill(value);
+  }
 
   if (error) {
     showError(element, error);
@@ -151,11 +157,23 @@ function handleReset() {
    INIT
 ========================= */
 export function initEvents() {
-  DOM.bill.addEventListener('input', handleInputChange);
-  DOM.people.addEventListener('input', handleInputChange);
+  DOM.bill.addEventListener('input', (e) => {
+    enforceMaxValue(e, 100000);
+    limitLength(e, 10);
+    handleInputChange(e);
+  });
+  DOM.people.addEventListener('input', (e) => {
+    enforceMaxValue(e, 100);
+    limitLength(e, 3);
+    handleInputChange(e);
+  });
 
   DOM.tipContainer.addEventListener('change', handleTipChange);
-  DOM.customTip.addEventListener('input', handleCustomTip);
+  DOM.customTip.addEventListener('input', (e) => {
+    enforceMaxValue(e, 100);
+    limitLength(e, 3);
+    handleCustomTip(e);
+  });
 
   DOM.resetBtn.addEventListener('click', handleReset);
 
