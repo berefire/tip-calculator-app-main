@@ -1,6 +1,6 @@
 @layer tokens {
     :root {
         --size-608: calc( 608 / var(--base) * 1rem);
-        --size-920: calc( 920 / var(--base) * 1rem);
+        --size-950: calc( 950 / var(--base) * 1rem);
     }
 }

@@ -3,7 +3,7 @@ export function validatePeople(value) {
         return "Can't be zero";
     }
 
-    if ( value > 100 ) {
+    if ( value > 101 ) {
         return "Too many people";   
     }
 
@@ -16,4 +16,5 @@ export function validateBill(value) {
     }
 
     return "";
+
 }

@@ -5,7 +5,7 @@
 
     @media(min-width: 64em){
         :root {
-            --form-inline-size: var(--size-920);
+            --form-inline-size: var(--size-950);
         }
     }
 }

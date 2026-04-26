@@ -106,11 +106,18 @@ function render() {
 
 function handleInputChange(e) {
   const { name, value } = e.target;
-  const numericValue = sanitizeNumber(value);
 
-  if (!validateField(name, numericValue, e.target)) return;
+  const numericValue = Number(value);
 
-  setState({ [name]: numericValue });
+  if (!validateField(name, numericValue, e.target)) {
+    setState({ [name]: 0 });
+    render();
+    return;
+  }
+
+  const sanitizedValue = sanitizeNumber(numericValue);
+
+  setState({ [name]: sanitizedValue });
   render();
 }
 
@@ -149,8 +156,10 @@ function handleReset() {
 
   document.querySelector('#people-error').textContent = '';
   document.querySelector('#people').classList.remove('people__input--error');
+  document.querySelector('#bill-error').textContent = '';
+  document.querySelector('#bill').classList.remove('bill__input--error');
 
-  updateResetButton(); // 👈 importante
+  updateResetButton();
 }
 
 /* =========================
@@ -159,12 +168,13 @@ function handleReset() {
 export function initEvents() {
   DOM.bill.addEventListener('input', (e) => {
     enforceMaxValue(e, 100000);
-    limitLength(e, 10);
+    limitLength(e, 7);
     handleInputChange(e);
   });
+
   DOM.people.addEventListener('input', (e) => {
-    enforceMaxValue(e, 100);
-    limitLength(e, 3);
+    enforceMaxValue(e, 1000);
+    limitLength(e, 6);
     handleInputChange(e);
   });
 

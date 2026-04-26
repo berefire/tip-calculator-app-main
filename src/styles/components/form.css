@@ -9,8 +9,11 @@
         color: var(--fc-bill-label);
         font-size: var(--fs-bill-label);
         line-height: var(--lh-bill-label);
-        margin-block-end: var(--stack-options-form);
+        
     }
+     .tip__label {
+        margin-block-end: var(--stack-options-form);
+     }
 
     .people__label {
         color: var(--fc-bill-label);

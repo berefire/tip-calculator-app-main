@@ -10,7 +10,7 @@
     .grid--display-results {
         display: grid;
         grid-template-columns: max-content minmax(0, 1fr);
-        gap: var(--item-display-gap-row) clamp(0.5rem, 2vw, 2rem);
+        gap: var(--item-display-gap-row) clamp(0.1rem, 1vw, 0.5rem);
         grid-template-rows: repeat(2, 1fr);
         align-items: center;
         justify-items: stretch;

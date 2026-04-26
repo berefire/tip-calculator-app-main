@@ -1,4 +1,4 @@
-export function sanitizeNumber(value, max = 10000 ) {
+export function sanitizeNumber(value, max = 1000000 ) {
     if (!value || isNaN(value)) return 0;
     if (value < 0) return 0;
     if (value > max) return max;
