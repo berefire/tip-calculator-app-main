@@ -46,14 +46,30 @@ Users should be able to:
 
 ### 📸Screenshot
 
-![](./screenshot.jpg)
+#### Mobile (375x914)
+
+| _Default_ | _Active_ | _Error_ |
+| --------- | -------- | ------- |
+| ![Mobile](./screenshots/mobile_default.png) | ![Mobile Active](./screenshots/mobile_active.png) | ![Mobile Error](./screenshots/mobile_error.png) |
+
+#### Tablet (768x914)
+
+| _Default_ | _Active_ | _Error_ |
+| --------- | -------- | ------- |
+| ![Tablet](./screenshots/tablet_default.png) | ![Tablet Active](./screenshots/tablet_active.png) | ![Tablet Error](./screenshots/tablet_error.png) |
+
+#### Desktop (1024x914)
+
+| _Default_ | _Active_ | _Error_ |
+| --------- | -------- | ------- |
+| ![Desktop](./screenshots/desktop_default.png) | ![Desktop Active](./screenshots/desktop_active.png) | ![Desktop Error](./screenshots/desktop_error.png) |
 
 ---
 
 ### 🔗Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://berefire.github.io/tip-calculator-app-main/](https://berefire.github.io/tip-calculator-app-main/)
 
 ---
 
