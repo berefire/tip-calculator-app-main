@@ -217,4 +217,3 @@ AI is most effective when used as a tool for reasoning and improvement, not just
 Thanks to Frontend Mentor for providing practical challenges that help developers improve real-world frontend skills.
 
 ---
-
