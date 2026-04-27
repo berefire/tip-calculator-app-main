@@ -38,8 +38,17 @@
           
           <div class="bill__wrapper">
             <img src="/src/assets/images/icon-dollar.svg" alt="" class="bill__icon" aria-hidden="true">
-            <input class="bill__input" type="number" id="bill" name="bill" inputmode="decimal" min="0" placeholder="0" min="0" 
-              required />
+            <input 
+              class="bill__input" 
+              type="number" 
+              id="bill" 
+              name="bill" 
+              inputmode="decimal" 
+              min="0" 
+              placeholder="0" 
+              required
+              aria-describedby="bill-error"
+              aria-invalid="false"/>
           </div>
         </div>
 
@@ -80,13 +89,22 @@
         <div class="form-group">
           <div class="people-error__wrapper">
             <label for="people" class="people__label">Number of People</label>
-            <span id="people-error" class="error-message" aria-live="polite"></span>
+            <span id="people-error" class="error-message" role="alert" aria-live="assertive"></span>
           </div>
           
           <div class="people__wrapper">
             <img src="/src/assets/images/icon-person.svg" alt="" class="people__icon" aria-hidden="true">
-            <input class="people__input" type="number" id="people" name="people" inputmode="numeric" min="0" 
-              placeholder="0" required aria-describedby="people-error" />
+            <input 
+            class="people__input" 
+            type="number" 
+            id="people" 
+            name="people" 
+            inputmode="numeric" 
+            min="1" 
+            placeholder="0" 
+            required 
+            aria-describedby="people-error"
+            aria-invalid="false" />
           </div>
 
         </div>

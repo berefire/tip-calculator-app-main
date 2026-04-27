@@ -12,6 +12,7 @@ export function showError(input, message) {
     const errorEl = document.getElementById(`${input.id}-error`);
 
     input.classList.add(`${input.id}__input--error`);
+    input.setAttribute('aria-invalid', 'true');
     if (errorEl) errorEl.textContent = message;
 }
 
@@ -19,5 +20,6 @@ export function clearError(input) {
     const errorEl = document.getElementById(`${input.id}-error`);
 
     input.classList.remove(`${input.id}__input--error`);
+    input.setAttribute('aria-invalid', 'false');
     if (errorEl) errorEl.textContent = '';
 }   
