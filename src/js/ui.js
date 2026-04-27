@@ -1,3 +1,4 @@
+import { state } from "./state";
 import { formatCurrency } from "./utils/number";
 
 export function updateResults(tipAmount, total) {
@@ -9,21 +10,31 @@ export function updateResults(tipAmount, total) {
 }
 
 export function showError(input, message) {
-    const errorEl = document.getElementById(`${input.id}-error`);
+    const id = input.id;
+    const errorEl = document.getElementById(`${id}-error`);
 
-    input.classList.add(`${input.id}__input--error`);
+    state.errors[id] = message;
+
+    input.classList.add(`${id}__input--error`);
     input.setAttribute('aria-invalid', 'true');
     if (errorEl) errorEl.textContent = message;
 }
 
 export function clearError(input) {
-    const errorEl = document.getElementById(`${input.id}-error`);
+    const id = input.id;
+    const errorEl = document.getElementById(`${id}-error`);
 
-    input.classList.remove(`${input.id}__input--error`);
+    delete state.errors[id];
+
+    input.classList.remove(`${id}__input--error`);
     input.setAttribute('aria-invalid', 'false');
     if (errorEl) errorEl.textContent = '';
 }   
 
 export function announceResults(element, tipAmount, total) {
     element.textContent = `Tip amount per person: ${tipAmount}, Total per person: ${total}`;
+}
+
+export function hasErrors() {
+  return Object.values(state.errors).some(error => Boolean(error));
 }

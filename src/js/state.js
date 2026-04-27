@@ -3,7 +3,8 @@ export const state = {
     tip: 0,
     customTip: 0,
     people: 0,
-    error: {
+    errors: {
+        bill: "",
         people: "",
     },
 };
@@ -13,13 +14,13 @@ export function setState(newState) {
 }
 
 export function setError(field, message) {
-    state.error[field] = message;
+    state.errors[field] = message;
 }
 
 export function clearError(field) {
-    state.error[field] = "";
+    state.errors[field] = "";
 }
 
 export function hasErrors() {
-    return Object.values(state.error).some(Boolean);
+    return Object.values(state.errors).some(Boolean);
 }

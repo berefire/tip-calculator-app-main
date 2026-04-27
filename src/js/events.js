@@ -1,5 +1,5 @@
 import { addSafeListener, DOM } from './utils/dom.js';
-import { state, setState } from './state.js';
+import { state, setState, hasErrors } from './state.js';
 import { calculateTip } from './calculator.js';
 import { validatePeople, validateBill } from './validation.js';
 import { updateResults, showError, clearError, announceResults } from './ui.js';
@@ -44,6 +44,11 @@ function resetState() {
     tip: 0,
     people: 0,
     customTip: 0,
+
+    errors: {
+      bill: "",
+      people: "",
+    },
   });
 }
 
@@ -78,6 +83,11 @@ function render() {
   const tipValue = getTipValue();
 
   updateResetButton();
+
+  if (hasErrors()) {
+    updateResults(0, 0);
+    return;
+  }
   
   if (!bill || !people || !tipValue) {
     updateResults(0, 0);
