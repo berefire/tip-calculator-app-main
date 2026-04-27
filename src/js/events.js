@@ -4,6 +4,7 @@ import { updateResults } from './ui.js';
 import { validatePeople, validateBill } from './validation.js';
 import { showError, clearError } from './ui.js';
 import { sanitizeNumber, enforceMaxValue, limitLength } from './utils/number.js';
+import { VALIDATION_LIMITS } from './config/limits.js';
 
 /* =========================
    DOM CACHE (evita queries repetidos)
@@ -126,8 +127,11 @@ function handleTipChange(e) {
 
   DOM.customTip.value = '';
 
+  const raw = e.target.value;
+  const parsed = raw === '0' ? 0 : Number(raw);
+
   setState({
-    tip: sanitizeNumber(e.target.value),
+    tip: sanitizeNumber(parsed),
     customTip: 0,
   });
 
@@ -135,7 +139,7 @@ function handleTipChange(e) {
 }
 
 function handleCustomTip(e) {
-  const value = sanitizeNumber(e.target.value, 100);
+  const value = sanitizeNumber(e.target.value);
 
   resetTipSelection();
 
@@ -154,10 +158,8 @@ function handleReset() {
 
   resetTipSelection();
 
-  document.querySelector('#people-error').textContent = '';
-  document.querySelector('#people').classList.remove('people__input--error');
-  document.querySelector('#bill-error').textContent = '';
-  document.querySelector('#bill').classList.remove('bill__input--error');
+ clearError(DOM.bill);
+ clearError(DOM.people);
 
   updateResetButton();
 }
@@ -167,21 +169,21 @@ function handleReset() {
 ========================= */
 export function initEvents() {
   DOM.bill.addEventListener('input', (e) => {
-    enforceMaxValue(e, 100000);
-    limitLength(e, 7);
+    enforceMaxValue(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_INPUT);
+    limitLength(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_LENGTH);
     handleInputChange(e);
   });
 
   DOM.people.addEventListener('input', (e) => {
-    enforceMaxValue(e, 1000);
-    limitLength(e, 6);
+    enforceMaxValue(e, VALIDATION_LIMITS.PEOPLE_NUMBER.MAX_INPUT);
+    limitLength(e, VALIDATION_LIMITS.PEOPLE_NUMBER.MAX_LENGTH);
     handleInputChange(e);
   });
 
   DOM.tipContainer.addEventListener('change', handleTipChange);
   DOM.customTip.addEventListener('input', (e) => {
-    enforceMaxValue(e, 100);
-    limitLength(e, 3);
+    enforceMaxValue(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_INPUT);
+    limitLength(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_LENGTH);
     handleCustomTip(e);
   });
 

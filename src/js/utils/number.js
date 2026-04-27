@@ -1,8 +1,9 @@
-export function sanitizeNumber(value, max = 1000000 ) {
-    if (!value || isNaN(value)) return 0;
-    if (value < 0) return 0;
-    if (value > max) return max;
-    return value;
+export function sanitizeNumber(num) {
+     const value = Number(num);
+     if (!Number.isFinite(value)) {
+        return 0;
+     }
+    return Math.max(0, Math.round(value * 100) / 100);
 }
 
 export function formatCurrency(value) {
@@ -14,16 +15,18 @@ export function formatCurrency(value) {
     }).format(value);
 }
 
-export function enforceMaxValue(e, max) {
-  const value = Number(e.target.value);
+export function enforceMaxValue(event, max) {
+  const input = event.target;
+  const value = Number(input.value);
 
-  if (value > max) {
-    e.target.value = max;
+  if ( !Number.isNaN(value) && value > max ) {
+    input.value = String(max);
   }
 }
 
-export function limitLength(e, maxLength) {
-  if (e.target.value.length > maxLength) {
-    e.target.value = e.target.value.slice(0, maxLength);
+export function limitLength(event, maxLength) {
+  const input = event.target;
+  if (input.value.length > maxLength) {
+    input.value = input.value.slice(0, maxLength);
   }
 }

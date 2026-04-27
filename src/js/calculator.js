@@ -3,10 +3,10 @@ export function calculateTip(bill, tip, people) {
 
     const tipPercentaje = tip / 100;
 
-    const totatlTip = bill * tipPercentaje;
+    const totalTip = bill * tipPercentaje;
 
     return { 
-        tipAmount: totatlTip / people,
-        total: (bill + totatlTip) / people,
+        tipAmount: totalTip / people,
+        total: (bill + totalTip) / people,
      };
 }
