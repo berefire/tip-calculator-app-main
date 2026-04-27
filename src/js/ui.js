@@ -24,7 +24,7 @@ export function clearError(input) {
     const id = input.id;
     const errorEl = document.getElementById(`${id}-error`);
 
-    delete state.errors[id];
+    state.errors[id] = '';
 
     input.classList.remove(`${id}__input--error`);
     input.setAttribute('aria-invalid', 'false');

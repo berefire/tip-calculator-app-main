@@ -11,8 +11,13 @@ export const DOM = {
   announcer: document.getElementById('results-announcer'),
 };
 
-export function addSafeListener(element, event, handler){
-    if (!element) return;
+function assertElement(element, context) {
+    if (!element) {
+        throw new Error(`Expected element for ${context}, but got ${element}`);
+    }
+}
 
+export function addSafeListener(element, event, handler){
+    assertElement(element, `addSafeListener ("${event}")`);
     element.addEventListener(event, handler);
 }
