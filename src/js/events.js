@@ -1,22 +1,10 @@
+import { addSafeListener, DOM } from './utils/dom.js';
 import { state, setState } from './state.js';
 import { calculateTip } from './calculator.js';
 import { validatePeople, validateBill } from './validation.js';
 import { updateResults, showError, clearError, announceResults } from './ui.js';
 import { sanitizeNumber, enforceMaxValue, limitLength } from './utils/number.js';
 import { VALIDATION_LIMITS } from './config/limits.js';
-
-/* =========================
-   DOM CACHE (evita queries repetidos)
-========================= */
-const DOM = {
-  bill: document.querySelector('#bill'),
-  people: document.querySelector('#people'),
-  customTip: document.querySelector('#tip-custom'),
-  tipRadios: document.querySelectorAll('input[name="tip"]'),
-  tipContainer: document.querySelector('.group-buttons'),
-  resetBtn: document.querySelector('.reset-btn'),
-  announcer: document.getElementById('results-announcer'),
-};
 
 /* =========================
    HELPERS (single responsibility)
@@ -173,26 +161,26 @@ function handleReset() {
    INIT
 ========================= */
 export function initEvents() {
-  DOM.bill.addEventListener('input', (e) => {
+  addSafeListener(DOM.bill, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_LENGTH);
     handleInputChange(e);
   });
 
-  DOM.people.addEventListener('input', (e) => {
+  addSafeListener(DOM.people, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.PEOPLE_NUMBER.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.PEOPLE_NUMBER.MAX_LENGTH);
     handleInputChange(e);
   });
 
-  DOM.tipContainer.addEventListener('change', handleTipChange);
-  DOM.customTip.addEventListener('input', (e) => {
+  addSafeListener(DOM.tipContainer, 'change', handleTipChange);
+  addSafeListener(DOM.customTip, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_LENGTH);
     handleCustomTip(e);
   });
 
-  DOM.resetBtn.addEventListener('click', handleReset);
+  addSafeListener(DOM.resetBtn, 'click', handleReset);
 
   updateResetButton();
 }
