@@ -1,9 +1,15 @@
 import { state } from "./state";
 import { formatCurrency } from "./utils/number";
 
-export function updateResults(tipAmount, total) {
-  const tipEl = document.querySelector('#tip-amount');
-  const totalEl = document.querySelector('#total');
+export function updateResults(tipAmount, total, container = document) {
+  const tipEl = container.querySelector('#tip-amount');
+  const totalEl = container.querySelector('#total');
+
+  if (!tipEl || !totalEl) {
+    // Throwing an error can surface issues during development/test runs
+    throw new Error('updateResults: required elements (#tip-amount, #total) not found in container');
+  }
+
 
   tipEl.textContent = formatCurrency(tipAmount);
   totalEl.textContent = formatCurrency(total);
