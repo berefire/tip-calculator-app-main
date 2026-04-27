@@ -24,7 +24,7 @@ export function validateBill(value) {
     if(Number.isNaN(num)) {
         return "Enter a valid number";
     }
-    if ( num <= VALIDATION_LIMITS.BILL_AMOUNT.MIN ) {
+    if ( num < VALIDATION_LIMITS.BILL_AMOUNT.MIN ) {
         return `Amount must be at least ${VALIDATION_LIMITS.BILL_AMOUNT.MIN}`;
     }
     if ( num > VALIDATION_LIMITS.BILL_AMOUNT.MAX_VALIDATION ) {
