@@ -23,3 +23,7 @@ export function clearError(input) {
     input.setAttribute('aria-invalid', 'false');
     if (errorEl) errorEl.textContent = '';
 }   
+
+export function announceResults(element, tipAmount, total) {
+    element.textContent = `Tip amount per person: ${tipAmount}, Total per person: ${total}`;
+}

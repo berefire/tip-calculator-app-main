@@ -1,7 +1,7 @@
 .sr-only {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
+  inline-size: 0.0625rem;
+  block-size: 0.0625rem;
   padding: 0;
   margin: -0.0625rem;
   overflow: hidden;
@@ -33,8 +33,8 @@
 
 .visually-hidden {
   position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
+  width: 0.0625rem; height: 0.0625rem;
+  padding: 0; margin: -0.0625rem;
   overflow: hidden; clip: rect(0 0 0 0);
   white-space: nowrap; border: 0;
 }

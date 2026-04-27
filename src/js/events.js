@@ -1,8 +1,7 @@
 import { state, setState } from './state.js';
 import { calculateTip } from './calculator.js';
-import { updateResults } from './ui.js';
 import { validatePeople, validateBill } from './validation.js';
-import { showError, clearError } from './ui.js';
+import { updateResults, showError, clearError, announceResults } from './ui.js';
 import { sanitizeNumber, enforceMaxValue, limitLength } from './utils/number.js';
 import { VALIDATION_LIMITS } from './config/limits.js';
 
@@ -16,6 +15,7 @@ const DOM = {
   tipRadios: document.querySelectorAll('input[name="tip"]'),
   tipContainer: document.querySelector('.group-buttons'),
   resetBtn: document.querySelector('.reset-btn'),
+  announcer: document.getElementById('results-announcer'),
 };
 
 /* =========================
@@ -97,7 +97,9 @@ function render() {
   }
 
   const { tipAmount, total } = calculateTip(bill, tipValue, people);
+
   updateResults(tipAmount, total);
+  announceResults(DOM.announcer, `$${tipAmount.toFixed(2)}`, `$${total.toFixed(2)}`);
 }
 
 /* =========================

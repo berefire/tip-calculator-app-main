@@ -111,23 +111,25 @@
         <button type="submit" class="visually-hidden">Submit form</button>
       </form>
 
-      <section class="calculator__results box--tip-card cluster cluster--results" aria-live="polite">
+      <section class="calculator__results box--tip-card cluster cluster--results">
         <h2 class="sr-only">Calculator Results</h2>
         <div class="results-display grid--display-results">
-            <p class="amount__label">
+            <p class="amount__label" id="tip-label">
               Tip Amount <span class="person__label">/ person</span>
             </p>
-            <output class="display-amount" id="tip-amount" name="tipAmount">$0.00</output>
+            <output class="display-amount" id="tip-amount" name="tipAmount" aria-labelledby="tip-label">$0.00</output>
 
-            <p class="total__label">
+            <p class="total__label" id="total-label">
               Total <span class="person__label">/ person</span>
             </p>
-            <output class="display-total" id="total" name="totalAmount">$0.00</output>
+            <output class="display-total" id="total" name="totalAmount" aria-labelledby="total-label">$0.00</output>
         </div>
 
-        <button type="reset" class="reset-btn">
+        <button type="button" id="reset" class="reset-btn">
           Reset
         </button>
+
+        <div id="results-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
       </section>
     </section>
   </main>
