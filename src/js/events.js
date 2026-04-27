@@ -99,7 +99,10 @@ function render() {
   const { tipAmount, total } = calculateTip(bill, tipValue, people);
 
   updateResults(tipAmount, total);
-  announceResults(DOM.announcer, `$${tipAmount.toFixed(2)}`, `$${total.toFixed(2)}`);
+
+  if ( DOM.announcer ) {
+    announceResults(DOM.announcer, `$${tipAmount.toFixed(2)}`, `$${total.toFixed(2)}`);
+  }
 }
 
 /* =========================
