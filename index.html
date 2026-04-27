@@ -108,19 +108,21 @@
           </div>
 
         </div>
+        <button type="submit" class="visually-hidden">Submit form</button>
       </form>
 
       <section class="calculator__results box--tip-card cluster cluster--results" aria-live="polite">
+        <h2 class="sr-only">Calculator Results</h2>
         <div class="results-display grid--display-results">
             <p class="amount__label">
               Tip Amount <span class="person__label">/ person</span>
             </p>
-            <output class="display-amount" id="tip-amount">$0.00</output>
+            <output class="display-amount" id="tip-amount" name="tipAmount">$0.00</output>
 
             <p class="total__label">
               Total <span class="person__label">/ person</span>
             </p>
-            <output class="display-total" id="total">$0.00</output>
+            <output class="display-total" id="total" name="totalAmount">$0.00</output>
         </div>
 
         <button type="reset" class="reset-btn">
