@@ -1,0 +1,5 @@
+@layer tokens {
+    :root {
+        --shadow-calculator: var(--shadow-200);
+    }
+}

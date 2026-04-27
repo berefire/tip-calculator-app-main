@@ -4,9 +4,11 @@
 @import "@tokens/primitives/colors.css";
 @import "@tokens/primitives/sizing.css";
 @import "@tokens/primitives/typography.css";
+@import "@tokens/primitives/shadows.css";
 
 @import "@tokens/semantics/colors.css";
 @import "@tokens/semantics/spacing.css";
 @import "@tokens/semantics/sizing.css";
 @import "@tokens/semantics/typography.css";
 @import "@tokens/semantics/radius.css";
+@import "@tokens/semantics/shadow.css";

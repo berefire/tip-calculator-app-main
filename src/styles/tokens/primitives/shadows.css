@@ -1,0 +1,5 @@
+@layer tokens {
+    :root {
+        --shadow-200: 0 32px 43px rgba(79, 166, 175, 0.2007);
+    }
+}
