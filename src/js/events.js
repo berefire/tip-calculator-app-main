@@ -171,26 +171,32 @@ function handleReset() {
    INIT
 ========================= */
 export function initEvents() {
-  addSafeListener(DOM.bill, 'input', (e) => {
+  const { bill, people, tipContainer, resetBtn, customTip } = DOM;
+
+  if (!bill || !people || !tipContainer || !resetBtn || !customTip) {
+    throw new Error('Missing required DOM elements');
+  }
+
+  addSafeListener(bill, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_LENGTH);
     handleInputChange(e);
   });
 
-  addSafeListener(DOM.people, 'input', (e) => {
+  addSafeListener(people, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.PEOPLE_NUMBER.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.PEOPLE_NUMBER.MAX_LENGTH);
     handleInputChange(e);
   });
 
-  addSafeListener(DOM.tipContainer, 'change', handleTipChange);
-  addSafeListener(DOM.customTip, 'input', (e) => {
+  addSafeListener(tipContainer, 'change', handleTipChange);
+  addSafeListener(customTip, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_LENGTH);
     handleCustomTip(e);
   });
 
-  addSafeListener(DOM.resetBtn, 'click', handleReset);
+  addSafeListener(resetBtn, 'click', handleReset);
 
   updateResetButton();
 }

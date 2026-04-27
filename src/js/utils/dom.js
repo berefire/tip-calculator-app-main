@@ -1,14 +1,31 @@
-/* =========================
-   DOM CACHE
-========================= */
 export const DOM = {
-  bill: document.querySelector('#bill'),
-  people: document.querySelector('#people'),
-  customTip: document.querySelector('#tip-custom'),
-  tipRadios: document.querySelectorAll('input[name="tip"]'),
-  tipContainer: document.querySelector('.group-buttons'),
-  resetBtn: document.querySelector('.reset-btn'),
-  announcer: document.getElementById('results-announcer'),
+  get bill() {
+    return document.querySelector('#bill');
+  },
+
+  get people() {
+    return document.querySelector('#people');
+  },
+
+  get customTip() {
+    return document.querySelector('#tip-custom');
+  },
+
+  get tipRadios() {
+    return document.querySelectorAll('input[name="tip"]');
+  },
+
+  get tipContainer() {
+    return document.querySelector('.group-buttons');
+  },
+
+  get resetBtn() {
+    return document.querySelector('.reset-btn');
+  },
+
+  get announcer() {
+    return document.getElementById('results-announcer');
+  },
 };
 
 function assertElement(element, context) {
@@ -20,4 +37,14 @@ function assertElement(element, context) {
 export function addSafeListener(element, event, handler){
     assertElement(element, `addSafeListener ("${event}")`);
     element.addEventListener(event, handler);
+}
+
+export function initDOM() {
+  Object.entries(DOM).forEach(([key, element]) => {
+    if (!element) {
+      throw new Error(
+        `Missing DOM element: ${key}`
+      );
+    }
+  });
 }
