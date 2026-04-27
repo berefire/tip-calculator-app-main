@@ -41,4 +41,10 @@
       min-block-size: 100dvh;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    input {
+      transition: none;
+    }
+  }
 }
