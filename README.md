@@ -68,7 +68,7 @@ Users should be able to:
 
 ### 🔗Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/tip-calculator-app-with-modular-architecture-and-validation-9UFc7WgJbr](https://www.frontendmentor.io/solutions/tip-calculator-app-with-modular-architecture-and-validation-9UFc7WgJbr)
 - Live Site URL: [https://berefire.github.io/tip-calculator-app-main/](https://berefire.github.io/tip-calculator-app-main/)
 
 ---
