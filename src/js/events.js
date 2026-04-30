@@ -142,7 +142,7 @@ function handleTipChange(e) {
 }
 
 function handleCustomTip(e) {
-  const value = sanitizeNumber(e.target.value);
+  const value = sanitizeNumber(Number(e.target.value));
 
   resetTipSelection();
 
@@ -191,8 +191,8 @@ export function initEvents() {
 
   addSafeListener(tipContainer, 'change', handleTipChange);
   addSafeListener(customTip, 'input', (e) => {
-    enforceMaxValue(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_INPUT);
-    limitLength(e, VALIDATION_LIMITS.CUSTOM_TIP.MAX_LENGTH);
+    enforceMaxValue(e, VALIDATION_LIMITS.TIP_PERCENTAGE.MAX_INPUT);
+    limitLength(e, VALIDATION_LIMITS.TIP_PERCENTAGE.MAX_LENGTH);
     handleCustomTip(e);
   });
 
