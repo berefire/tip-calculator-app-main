@@ -1,5 +1,6 @@
+///<reference types="vitest/config" />
 import { defineConfig } from 'vite';
-import path from 'path';
+import path from 'node:path';
 
 export default defineConfig({
     base: "/tip-calculator-app-main/",
@@ -18,6 +19,10 @@ export default defineConfig({
             "@js": path.resolve(__dirname, 'src/js'),
             "@assets": path.resolve(__dirname, 'src/assets'),
         },
+    },
+
+    test: {
+        environment: 'node',
     },
 });
             
