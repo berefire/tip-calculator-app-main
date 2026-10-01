@@ -28,7 +28,7 @@ export function validateBill(value) {
         return `Amount must be at least ${VALIDATION_LIMITS.BILL_AMOUNT.MIN}`;
     }
     if ( num > VALIDATION_LIMITS.BILL_AMOUNT.MAX_VALIDATION ) {
-        return `Amount must be less than ${VALIDATION_LIMITS.BILL_AMOUNT.MAX_VALIDATION}`;
+        return `Amount cannot exceed ${VALIDATION_LIMITS.BILL_AMOUNT.MAX_VALIDATION}`;
     }
 
     return "";
