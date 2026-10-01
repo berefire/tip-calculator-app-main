@@ -1,9 +1,9 @@
 import { addSafeListener, DOM } from './utils/dom.js';
-import { state, setState, hasErrors } from './state.js';
+import { state, setState, resetState, hasErrors } from './state.js';
 import { calculateTip } from './calculator.js';
 import { validatePeople, validateBill } from './validation.js';
 import { updateResults, showError, clearError, announceResults } from './ui.js';
-import { sanitizeNumber, enforceMaxValue, limitLength } from './utils/number.js';
+import { sanitizeNumber, formatCurrency, enforceMaxValue, limitLength } from './utils/number.js';
 import { VALIDATION_LIMITS } from './config/limits.js';
 
 /* =========================
@@ -11,13 +11,7 @@ import { VALIDATION_LIMITS } from './config/limits.js';
 ========================= */
 function hasUserInput() {
   const { bill, people, tip, customTip } = state;
-
-  return Boolean(
-    bill > 0 ||
-    people > 0 ||
-    tip > 0 ||
-    customTip > 0
-  );
+  return bill > 0 || people > 0 || tip > 0 || customTip > 0;
 }
 
 function updateResetButton() {
@@ -29,7 +23,7 @@ function getTipValue() {
 }
 
 function resetTipSelection() {
-  DOM.tipRadios.forEach(radio => (radio.checked = false));
+  DOM.tipRadios.forEach((radio) => (radio.checked = false));
 }
 
 function clearInputs() {
@@ -38,25 +32,11 @@ function clearInputs() {
   DOM.customTip.value = '';
 }
 
-function resetState() {
-  setState({
-    bill: 0,
-    tip: 0,
-    people: 0,
-    customTip: 0,
-
-    errors: {
-      bill: "",
-      people: "",
-    },
-  });
-}
-
 /* =========================
    VALIDATION LAYER
 ========================= */
 function validateField(name, value, element) {
-  let error= '';
+  let error = '';
 
   if (name === 'people') {
     error = validatePeople(value);
@@ -84,12 +64,7 @@ function render() {
 
   updateResetButton();
 
-  if (hasErrors()) {
-    updateResults(0, 0);
-    return;
-  }
-  
-  if (!bill || !people || !tipValue) {
+  if (hasErrors() || !bill || !people || !tipValue) {
     updateResults(0, 0);
     return;
   }
@@ -98,19 +73,16 @@ function render() {
 
   updateResults(tipAmount, total);
 
-  if ( DOM.announcer ) {
-    announceResults(DOM.announcer, `$${tipAmount.toFixed(2)}`, `$${total.toFixed(2)}`);
+  if (DOM.announcer) {
+    announceResults(DOM.announcer, formatCurrency(tipAmount), formatCurrency(total));
   }
 }
 
 /* =========================
    EVENT HANDLERS
 ========================= */
-
-
 function handleInputChange(e) {
   const { name, value } = e.target;
-
   const numericValue = Number(value);
 
   if (!validateField(name, numericValue, e.target)) {
@@ -119,9 +91,7 @@ function handleInputChange(e) {
     return;
   }
 
-  const sanitizedValue = sanitizeNumber(numericValue);
-
-  setState({ [name]: sanitizedValue });
+  setState({ [name]: sanitizeNumber(numericValue) });
   render();
 }
 
@@ -130,11 +100,8 @@ function handleTipChange(e) {
 
   DOM.customTip.value = '';
 
-  const raw = e.target.value;
-  const parsed = raw === '0' ? 0 : Number(raw);
-
   setState({
-    tip: sanitizeNumber(parsed),
+    tip: sanitizeNumber(Number(e.target.value)),
     customTip: 0,
   });
 
@@ -142,12 +109,10 @@ function handleTipChange(e) {
 }
 
 function handleCustomTip(e) {
-  const value = sanitizeNumber(Number(e.target.value));
-
   resetTipSelection();
 
   setState({
-    customTip: value,
+    customTip: sanitizeNumber(Number(e.target.value)),
     tip: 0,
   });
 
@@ -157,14 +122,10 @@ function handleCustomTip(e) {
 function handleReset() {
   resetState();
   clearInputs();
-  updateResults(0, 0);
-
   resetTipSelection();
-
- clearError(DOM.bill);
- clearError(DOM.people);
-
-  updateResetButton();
+  clearError(DOM.bill);
+  clearError(DOM.people);
+  render();
 }
 
 /* =========================
@@ -172,10 +133,6 @@ function handleReset() {
 ========================= */
 export function initEvents() {
   const { bill, people, tipContainer, resetBtn, customTip } = DOM;
-
-  if (!bill || !people || !tipContainer || !resetBtn || !customTip) {
-    throw new Error('Missing required DOM elements');
-  }
 
   addSafeListener(bill, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.BILL_AMOUNT.MAX_INPUT);
@@ -190,6 +147,7 @@ export function initEvents() {
   });
 
   addSafeListener(tipContainer, 'change', handleTipChange);
+
   addSafeListener(customTip, 'input', (e) => {
     enforceMaxValue(e, VALIDATION_LIMITS.TIP_PERCENTAGE.MAX_INPUT);
     limitLength(e, VALIDATION_LIMITS.TIP_PERCENTAGE.MAX_LENGTH);
