@@ -41,10 +41,12 @@ export function addSafeListener(element, event, handler){
 
 export function initDOM() {
   Object.entries(DOM).forEach(([key, element]) => {
-    if (!element) {
-      throw new Error(
-        `Missing DOM element: ${key}`
-      );
+    const isMissing = element instanceof NodeList
+      ? element.length === 0
+      : !element;
+
+    if (isMissing) {
+      throw new Error(`Missing DOM element: ${key}`);
     }
   });
 }
