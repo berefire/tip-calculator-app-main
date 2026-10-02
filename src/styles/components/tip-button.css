@@ -8,6 +8,7 @@
 
   .tip-button--visual {
     display: inline-block;
+    cursor: pointer;
     inline-size: 100%;
     color: var(--fc-button-disabled);
     background-color: var(--bg-button-disabled);
