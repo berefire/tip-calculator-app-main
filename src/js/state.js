@@ -4,6 +4,7 @@ const createInitialState = () => {
     tip: 0,
     customTip: 0,
     people: 0,
+    hasTip: false,
     errors: {
       bill: "",
       people: "",

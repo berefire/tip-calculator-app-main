@@ -64,7 +64,7 @@ function render() {
 
   updateResetButton();
 
-  if (hasErrors() || !bill || !people || !tipValue) {
+  if (hasErrors() || !bill || !people || !state.hasTip) {
     updateResults(0, 0);
     return;
   }
@@ -103,6 +103,7 @@ function handleTipChange(e) {
   setState({
     tip: sanitizeNumber(Number(e.target.value)),
     customTip: 0,
+    hasTip: true,
   });
 
   render();
@@ -114,6 +115,7 @@ function handleCustomTip(e) {
   setState({
     customTip: sanitizeNumber(Number(e.target.value)),
     tip: 0,
+    hasTip: e.target.value.trim() !== '', // an empty input means "no tip chosen"
   });
 
   render();

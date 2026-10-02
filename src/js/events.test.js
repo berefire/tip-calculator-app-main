@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
-import { describe, it, expect, beforeEach } from 'vitest';
-import { initEvents } from './events.js';
-import { setState } from './state.js';
+import { describe, it, expect, beforeEach } from "vitest";
+import { initEvents } from "./events.js";
+import { setState } from "./state.js";
 
 // ---------- helpers ----------
 function renderApp() {
@@ -29,94 +29,119 @@ function renderApp() {
 // Simulates a user typing a value
 function type(input, value) {
   input.value = value;
-  input.dispatchEvent(new Event('input', { bubbles: true }));
+  input.dispatchEvent(new Event("input", { bubbles: true }));
 }
 
 const $ = (selector) => document.querySelector(selector);
 
 beforeEach(() => {
-  setState({ bill: 0, tip: 0, customTip: 0, people: 0, errors: { bill: '', people: '' } });
+  setState({
+    bill: 0,
+    tip: 0,
+    customTip: 0,
+    people: 0,
+    errors: { bill: "", people: "" },
+  });
   renderApp();
   initEvents();
 });
 
 // ---------- tests ----------
-describe('tip calculator (integration)', () => {
-  it('starts with the reset button disabled', () => {
-    expect($('.reset-btn').disabled).toBe(true);
+describe("tip calculator (integration)", () => {
+  it("starts with the reset button disabled", () => {
+    expect($(".reset-btn").disabled).toBe(true);
   });
 
-  it('enables the reset button after the user types', () => {
-    type($('#bill'), '100');
+  it("enables the reset button after the user types", () => {
+    type($("#bill"), "100");
 
-    expect($('.reset-btn').disabled).toBe(false);
+    expect($(".reset-btn").disabled).toBe(false);
   });
 
-  it('calculates the results with a tip button', () => {
-    type($('#bill'), '100');
-    $('#tip-10').click();
-    type($('#people'), '2');
+  it("calculates the results with a tip button", () => {
+    type($("#bill"), "100");
+    $("#tip-10").click();
+    type($("#people"), "2");
 
-    expect($('#tip-amount').textContent).toBe('$5.00');
-    expect($('#total').textContent).toBe('$55.00');
+    expect($("#tip-amount").textContent).toBe("$5.00");
+    expect($("#total").textContent).toBe("$55.00");
   });
 
-  it('calculates the results with a custom tip', () => {
-    type($('#bill'), '100');
-    type($('#tip-custom'), '20');
-    type($('#people'), '4');
+  it("splits the bill without a tip when the custom tip is 0", () => {
+    type($("#bill"), "100");
+    type($("#tip-custom"), "0");
+    type($("#people"), "4");
 
-    expect($('#tip-amount').textContent).toBe('$5.00');
-    expect($('#total').textContent).toBe('$30.00');
+    expect($("#tip-amount").textContent).toBe("$0.00");
+    expect($("#total").textContent).toBe("$25.00");
   });
 
-  it('typing a custom tip unchecks the tip buttons', () => {
-    $('#tip-10').click();
-    type($('#tip-custom'), '20');
+  it("shows $0.00 again when the custom tip is cleared", () => {
+    type($("#bill"), "100");
+    type($("#tip-custom"), "20");
+    type($("#people"), "4");
 
-    expect($('#tip-10').checked).toBe(false);
+    type($("#tip-custom"), "");
+
+    expect($("#total").textContent).toBe("$0.00");
   });
 
-  it('clicking a tip button clears the custom tip', () => {
-    type($('#tip-custom'), '20');
-    $('#tip-10').click();
+  it("calculates the results with a custom tip", () => {
+    type($("#bill"), "100");
+    type($("#tip-custom"), "20");
+    type($("#people"), "4");
 
-    expect($('#tip-custom').value).toBe('');
+    expect($("#tip-amount").textContent).toBe("$5.00");
+    expect($("#total").textContent).toBe("$30.00");
   });
 
-  it('shows an error when people is 0 and keeps results at $0.00', () => {
-    type($('#bill'), '100');
-    $('#tip-10').click();
-    type($('#people'), '0');
+  it("typing a custom tip unchecks the tip buttons", () => {
+    $("#tip-10").click();
+    type($("#tip-custom"), "20");
 
-    expect($('#people-error').textContent).not.toBe('');
-    expect($('#people').getAttribute('aria-invalid')).toBe('true');
-    expect($('#tip-amount').textContent).toBe('$0.00');
-    expect($('#total').textContent).toBe('$0.00');
+    expect($("#tip-10").checked).toBe(false);
   });
 
-  it('announces the results for screen readers', () => {
-    type($('#bill'), '100');
-    $('#tip-10').click();
-    type($('#people'), '2');
+  it("clicking a tip button clears the custom tip", () => {
+    type($("#tip-custom"), "20");
+    $("#tip-10").click();
 
-    expect($('#results-announcer').textContent).toBe(
-      'Tip amount per person: $5.00, Total per person: $55.00'
+    expect($("#tip-custom").value).toBe("");
+  });
+
+  it("shows an error when people is 0 and keeps results at $0.00", () => {
+    type($("#bill"), "100");
+    $("#tip-10").click();
+    type($("#people"), "0");
+
+    expect($("#people-error").textContent).not.toBe("");
+    expect($("#people").getAttribute("aria-invalid")).toBe("true");
+    expect($("#tip-amount").textContent).toBe("$0.00");
+    expect($("#total").textContent).toBe("$0.00");
+  });
+
+  it("announces the results for screen readers", () => {
+    type($("#bill"), "100");
+    $("#tip-10").click();
+    type($("#people"), "2");
+
+    expect($("#results-announcer").textContent).toBe(
+      "Tip amount per person: $5.00, Total per person: $55.00",
     );
   });
 
-  it('reset clears everything', () => {
-    type($('#bill'), '100');
-    $('#tip-10').click();
-    type($('#people'), '2');
+  it("reset clears everything", () => {
+    type($("#bill"), "100");
+    $("#tip-10").click();
+    type($("#people"), "2");
 
-    $('.reset-btn').click();
+    $(".reset-btn").click();
 
-    expect($('#bill').value).toBe('');
-    expect($('#people').value).toBe('');
-    expect($('#tip-10').checked).toBe(false);
-    expect($('#tip-amount').textContent).toBe('$0.00');
-    expect($('#total').textContent).toBe('$0.00');
-    expect($('.reset-btn').disabled).toBe(true);
+    expect($("#bill").value).toBe("");
+    expect($("#people").value).toBe("");
+    expect($("#tip-10").checked).toBe(false);
+    expect($("#tip-amount").textContent).toBe("$0.00");
+    expect($("#total").textContent).toBe("$0.00");
+    expect($(".reset-btn").disabled).toBe(true);
   });
 });
