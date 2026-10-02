@@ -29,10 +29,17 @@
   }
 
   input {
-    cursor: pointer;
-    border: 2px solid transparent;
-    outline: none;
+    border: 0.125em solid transparent;
     transition: border-color 0.2s ease;
+  }
+
+  input:focus-visible {
+    border-color: var(--green-400);
+    outline: 0.125em solid transparent;
+  }
+
+  input:focus:not(:focus-visible) {
+    outline: none;
   }
 
   @supports (min-block-size: 100dvh) {
